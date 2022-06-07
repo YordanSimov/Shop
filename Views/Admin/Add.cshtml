@@ -1,0 +1,35 @@
+﻿@model Shop.Models.InputModels.AddProductInputModel
+@{
+    this.ViewData["Title"] = "Add product";
+}
+
+<h1 class="text-center">Add product</h1>
+<div class="container">
+    <form method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label">Name</label>
+            <input asp-for="Name" type="text" placeholder="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label">Description</label>
+            <textarea asp-for="Description" type="text" placeholder="Description" class="form-control"> </textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="BrandName" class="form-label">Brand name</label>
+            <input asp-for="BrandName" type="text" placeholder="Brand name" class="form-control" />
+            <span asp-validation-for="BrandName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="SubCategoryName" class="form-label">SubCategory</label>
+            <input asp-for="SubCategoryName" type="text" placeholder="SubCategory" class="form-control" />
+            <span asp-validation-for="SubCategoryName" class="text-danger"></span>
+        </div>
+        <div class="mb-3 form-check">
+            <input asp-for="IsAvailable" type="checkbox" />
+            <label asp-for="IsAvailable" class="form-label">Is available</label>
+        </div>
+        <input type="submit" class="btn btn-primary" />
+    </form>
+</div>
