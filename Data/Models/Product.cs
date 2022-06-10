@@ -7,7 +7,7 @@
         public Product()
         {
             Id = Guid.NewGuid().ToString();
-            Characteristics = new HashSet<Characteristics>();
+            Characteristics = new HashSet<Characteristic>();
             Orders = new HashSet<Order>();
             Images = new HashSet<Image>();
         }
@@ -39,7 +39,7 @@
 
         public SubCategory SubCategory { get; set; }
 
-        public ICollection<Characteristics> Characteristics { get; set; }
+        public ICollection<Characteristic> Characteristics { get; set; }
 
         public ICollection<Order> Orders { get; set; }
 

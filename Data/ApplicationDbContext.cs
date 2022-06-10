@@ -17,7 +17,7 @@
 
         public DbSet<Category> Categories { get; set; }
 
-        public DbSet<Characteristics> Characteristics { get; set; }
+        public DbSet<Characteristic> Characteristics { get; set; }
 
         public DbSet<City> Cities { get; set; }
 

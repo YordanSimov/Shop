@@ -14,8 +14,10 @@
 
         public string BrandName { get; set; }
 
+        public double Price { get; set; }
+
         public string SubCategoryName { get; set; }
 
-        public List<Characteristics> Characteristics { get; set; }
+        public List<Characteristic> Characteristics { get; set; }
     }
 }

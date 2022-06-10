@@ -22,6 +22,18 @@
             <span asp-validation-for="BrandName" class="text-danger"></span>
         </div>
         <div class="mb-3">
+            <label asp-for="Price" class="form-label">Price</label>
+            <input asp-for="Price" type="number" placeholder="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+        <div class="mb-3 form-control form-control-sm" id="characteristic">
+            <label asp-for="Characteristics" class="form-label">Characteristics</label>
+            <br />
+            <input name="Characteristics[0].Key" placeholder="Key" type="text" /> -
+            <input name="Characteristics[0].Value" placeholder="Value" type="text" />
+        </div>
+        <a onclick="AddAnotherCharacteristic()" class="btn btn-primary mb-3">Add more characteristics</a>
+        <div class="mb-3 mt-2">
             <label asp-for="SubCategoryName" class="form-label">SubCategory</label>
             <input asp-for="SubCategoryName" type="text" placeholder="SubCategory" class="form-control" />
             <span asp-validation-for="SubCategoryName" class="text-danger"></span>
@@ -30,6 +42,18 @@
             <input asp-for="IsAvailable" type="checkbox" />
             <label asp-for="IsAvailable" class="form-label">Is available</label>
         </div>
-        <input type="submit" class="btn btn-primary" />
+        <input type="submit" class="btn btn-primary " />
     </form>
 </div>
+
+@section Scripts {
+<script>
+     var index  = 1;
+     function AddAnotherCharacteristic() {
+         $("#characteristic")
+         .append
+         ("<div class='form-control-sm m-0 p-0 mt-1 mb-1 pt-1'><input type='text' name='Characteristics["+index+"].Key' placeholder='Key'  /> - <input type='text' name='Characteristics["+index+"].Value' placeholder='Value' /> </div>");
+    index++;
+     }
+</script>
+}
