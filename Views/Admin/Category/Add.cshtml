@@ -1,0 +1,43 @@
+﻿@model Shop.Models.InputModels.AddCategoryAndSubCategoryInputModel
+@{
+    this.ViewData["Title"] = "Add Category and SubCategory";
+}
+<h1 class="text-center">Add Category and SubCategory</h1>
+<div class="container">
+    <form method="post" enctype="multipart/form-data">
+        <div class="mb-3" id="category">
+        <select class="js-example-tags w-100">
+        @foreach(var category in Model.Categories)
+        {
+            <option>@category.Name</option>
+        }
+        </select>
+        </div>
+        <div class="mb-3  form-control-sm" id="subCategory">
+         <label asp-for="SubCategory" class="form-label">SubCategory</label>
+         <br />
+            <input asp-for="SubCategory" type="text" placeholder="SubCategory" class="form-control-sm" />
+            <span asp-validation-for="SubCategory" class="text-danger"></span>
+        </div>
+        <a onclick="AddAnotherSubCategory()" class="btn btn-primary mb-3">Add another subcategory</a>
+        <br />
+        <input type="submit" class="btn btn-primary " name="Submit" />
+    </form>
+</div>
+@*
+  <option selected="selected">orange</option>
+  <option>white</option>
+  <option>purple</option>
+</select>*@
+
+@section Scripts{
+   <script>
+       function AddAnotherSubCategory(){
+       $("#subCategory").append("<div class='form-control-sm m-0 p-0 mt-1 mb-1 pt-1'><input type='text' name='SubCategory' placeholder='SubCategory'  />")
+       }
+
+       $(".js-example-tags").select2({
+  tags: true
+});
+   </script>
+}

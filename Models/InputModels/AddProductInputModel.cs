@@ -16,7 +16,9 @@
 
         public double Price { get; set; }
 
-        public string SubCategoryName { get; set; }
+        public IEnumerable<KeyValuePair<int, string>> SubCategoryItems { get; set; }
+
+        public int SubCategoryId { get; set; }
 
         public List<Characteristic> Characteristics { get; set; }
     }

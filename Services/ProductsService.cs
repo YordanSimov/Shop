@@ -40,11 +40,21 @@
                     Value = ch.Value,
                     Product = product
                 };
-                dbContext.Characteristics.Add(characteristic);
+                product.Characteristics.Add(characteristic);
             }
 
             dbContext.Products.Add(product);
             dbContext.SaveChanges();
+        }
+
+        public IEnumerable<KeyValuePair<int,string>> GetAllSubCategoryNames()
+        {
+            var dict = new Dictionary<int,string>();
+            foreach (var item in dbContext.SubCategories)
+            {
+                dict.Add(item.Id,item.Name);
+            }
+            return dict;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿@model Shop.Models.InputModels.AddProductInputModel
 @{
     this.ViewData["Title"] = "Add product";
+    var subCategoryItems = this.Model.SubCategoryItems.Select(x => new SelectListItem(x.Key.ToString(), x.Value));
 }
 
 <h1 class="text-center">Add product</h1>
@@ -34,9 +35,15 @@
         </div>
         <a onclick="AddAnotherCharacteristic()" class="btn btn-primary mb-3">Add more characteristics</a>
         <div class="mb-3 mt-2">
-            <label asp-for="SubCategoryName" class="form-label">SubCategory</label>
+            <select class="js-example-basic-single w-100" name="states" >
+                @foreach (var subcategory in subCategoryItems)
+                {
+                 <option asp-for="@subcategory.Text">@subcategory.Value</option>
+                }
+            </select>
+@*            <label asp-for="SubCategoryName" class="form-label">SubCategory</label>
             <input asp-for="SubCategoryName" type="text" placeholder="SubCategory" class="form-control" />
-            <span asp-validation-for="SubCategoryName" class="text-danger"></span>
+            <span asp-validation-for="SubCategoryName" class="text-danger"></span>*@
         </div>
         <div class="mb-3 form-check">
             <input asp-for="IsAvailable" type="checkbox" />
@@ -55,5 +62,7 @@
          ("<div class='form-control-sm m-0 p-0 mt-1 mb-1 pt-1'><input type='text' name='Characteristics["+index+"].Key' placeholder='Key'  /> - <input type='text' name='Characteristics["+index+"].Value' placeholder='Value' /> </div>");
     index++;
      }
+
+    $('.js-example-basic-single').select2();
 </script>
 }

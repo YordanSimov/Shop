@@ -5,5 +5,7 @@
     public interface IProductsService
     {
         void AddProduct(AddProductInputModel input);
+
+        IEnumerable<KeyValuePair<int, string>> GetAllSubCategoryNames();
     }
 }
