@@ -6,7 +6,7 @@
 <div class="container">
     <form method="post" enctype="multipart/form-data">
         <div class="mb-3" id="category">
-        <select class="js-example-tags w-100">
+        <select asp-for="CategoryNameToAdd" class="js-example-tags w-100">
         @foreach(var category in Model.Categories)
         {
             <option>@category.Name</option>
@@ -33,7 +33,7 @@
 @section Scripts{
    <script>
        function AddAnotherSubCategory(){
-       $("#subCategory").append("<div class='form-control-sm m-0 p-0 mt-1 mb-1 pt-1'><input type='text' name='SubCategory' placeholder='SubCategory'  />")
+       $("#subCategory").append("<div class='form-control-sm m-0 p-0 mt-1 mb-1 pt-1'><input type='text' name='SubCategory' placeholder='SubCategory' class='form-control-sm'  />")
        }
 
        $(".js-example-tags").select2({
